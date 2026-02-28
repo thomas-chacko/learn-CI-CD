@@ -1,1 +1,37 @@
-name: Learn CI/CD with React
+# Name of the workflow
+name: React CI (Vite)
+
+# Trigger event (when workflow should run)
+on:
+  push:
+    branches:
+      - main
+
+# Jobs section
+jobs:
+  build:
+    
+    # Runner (virtual machine)
+    runs-on: ubuntu-latest
+
+    # Steps inside the job
+    steps:
+      
+      # Download your repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Node.js in the runner
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'   # Enables npm caching (faster builds)
+
+      # Install dependencies (clean install for CI)
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the Vite project (creates dist folder)
+      - name: Build project
+        run: npm run build
