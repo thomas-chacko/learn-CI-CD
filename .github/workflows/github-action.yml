@@ -10,13 +10,11 @@ on:
 # Jobs section
 jobs:
   build:
-    
     # Runner (virtual machine)
     runs-on: ubuntu-latest
 
     # Steps inside the job
     steps:
-      
       # Download your repository code
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'   # Enables npm caching (faster builds)
+          cache: "npm" # Enables npm caching (faster builds)
 
       # Install dependencies (clean install for CI)
       - name: Install dependencies
