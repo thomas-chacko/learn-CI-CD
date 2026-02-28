@@ -1,5 +1,5 @@
 # Name of the workflow
-name: React CI (Vite)
+name: CI/CD for React App
 
 # Trigger event (when workflow should run)
 on:
